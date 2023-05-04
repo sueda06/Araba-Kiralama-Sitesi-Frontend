@@ -1,0 +1,20 @@
+<div class="car-header">
+    Araba Detayları
+</div>
+<ul>
+    <li *ngFor="let image of carImages">
+        <img
+         src="https://localhost:44366{{image.imagePath}}" alt="asdasd">
+    </li>
+</ul>
+<ul *ngIf=car class="list-group">
+    <li class="list-group-item">Araba Numarası : {{car.id}}</li>
+    <li class="list-group-item">Markası : {{car.brandId}}</li>
+    <li class="list-group-item">Rengi : {{car.colorId}}</li>
+    <li class="list-group-item">Model Yılı : {{car.modelYear}}</li>
+    <li class="list-group-item">Günlük Ücreti : {{car.dailyPrice}} TL</li>
+    <li class="list-group-item">Açıklaması : {{car.description}}</li>
+    <li class="list-group-item">
+        <button (click)="addToCart(car)" class="btn btn-primary">Sepete Ekle</button>
+    </li>
+  </ul>

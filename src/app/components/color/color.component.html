@@ -1,0 +1,12 @@
+<select  id="color"
+[ngModel]="currentColor"
+(ngModelChange)="updateObj($event)">
+  <option>Renkler</option>
+  <option *ngFor="let color of colors"  [value]="color.id" >
+  {{color.name}}
+</option>
+</select>
+<button (click)="getUpdate()" type="button" class="btn btn-primary">Güncelle</button>
+<button (click)="getCarsFilter()" type="button" class="btn btn-secondary">
+  Filtrele
+ </button>

@@ -1,0 +1,34 @@
+<label >Toplam Tutar:</label>{{totalCount}}
+<br>
+<form  [formGroup]="bankForm">
+    <div *ngIf="creditCarts.length==0">
+    <div class="mb-3">
+        <label for="cartNumber">kart numarası</label>
+        <div class="form-group">
+          <input
+            type="text"
+            id="cartNumber"
+            formControlName="cartNumber"
+            class="form-control"
+          />
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="cartName">kart adı</label>
+        <div class="form-group">
+          <input
+            type="text"
+            id="cartName"
+            formControlName="cartName"
+            class="form-control"
+          />
+        </div>
+    </div>
+    <input type="submit" (click)="pay()" value="Kirala">
+    <button (click)="addCreditCart()">Kredi kartını kaydet</button>
+</div>
+    <div *ngIf="creditCarts.length>0" >
+    <label>kayıtlı kredi kartlarınız ile ödeme yapmak için seçiniz</label><br>
+    <label *ngFor="let creditCart of creditCarts">  
+        <button (click)="pay()">{{creditCart.cartName}}</button></label>
+</div>

@@ -1,0 +1,41 @@
+<div class="mb-3">
+    <button (click)="getCars()" type="button" class="btn btn-secondary">Tüm Ürünler</button>
+    <label for="filterText" class="form-label">Ürün Ara</label>
+  
+  <input
+    type="text"
+    [(ngModel)]="filterText"
+    class="form-control"
+    id="filterText"
+    placeholder="arama ifadesi giriniz"
+  />
+</div>
+<div *ngIf="filterText" class="alert alert-primary">{{ filterText }} aradınız.</div>
+<table clas="table">
+    <thead>
+        <tr>
+            <th>Araba Adı</th>
+            <th>Model Yılı</th>
+            <th>Marka</th>
+            <th>Renk</th>
+            <th>Ücret</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let car of cars | filterPipe:filterText">
+        <td>{{car.description}}</td>
+        <td>{{car.modelYear}}</td>
+        <td> {{car.brandId}}</td>
+        <td>{{car.colorId}}</td>
+        <td>{{car.dailyPrice}}</td>
+        <td>
+            <section style="float:left">
+            <button routerLink="/cars/update/{{car.id}}" type="button" class="btn btn-primary">Güncelle</button>
+            </section>
+        </td>
+        <td>
+            <section style="float:left">
+            <button routerLink="/cars/cardetail/{{car.id}}" type="button" class="btn btn-primary">Detaylar</button>
+            </section>
+        </td>
+    </tr>
+</table>

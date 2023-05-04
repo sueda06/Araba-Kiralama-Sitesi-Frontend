@@ -1,0 +1,13 @@
+<ul>
+  <li *ngFor="let cartItem of cartItems">{{cartItem.car.description}}</li>
+</ul>
+<form >
+  <div *ngIf="cartItems.length>0">
+  <label>kiralayacağınız tarihi seçiniz</label>
+  <br>
+  <input  class="form-control" [(ngModel)]="rentDate" type="datetime-local" name="rentDate" >
+  <input  class="form-control"  [(ngModel)]="returnDate" type="datetime-local" name="returnDate" >
+  <button  type="submit" class="btn btn-primary" (click)="addRental()">Kirala</button>
+</div>
+</form>
+<label>{{message}}</label>

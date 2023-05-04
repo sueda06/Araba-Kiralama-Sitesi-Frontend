@@ -1,0 +1,12 @@
+<select  id="brand"
+[ngModel]="currentBrand"
+(ngModelChange)="updateObj($event)">
+  <option>Markalar</option>
+  <option *ngFor="let brand of brands"  [value]="brand.id" >
+  {{brand.name}}</option>
+</select>
+<button (click)="getUpdate()" type="button" class="btn btn-primary">Güncelle</button>
+<button (click)="getCarsFilter()" type="button" class="btn btn-secondary">
+  Filtrele
+ </button>
+ 

@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" (click)="routeHome()">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+        <app-cart-summary></app-cart-summary>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <form *ngIf="authanticated()===true" class="d-flex" role="search">
+          
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{firstName}} {{lastName}}
+           </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-item">{{firstName}}</li>
+            <li class="dropdown-item">{{lastName}}</li>
+            <li class="dropdown-item">{{email}}</li>
+            <li class="dropdown-item">{{password}}</li>
+            <li><button class="btn btn-outline-primary" (click)="routeUser()"> Güncelle</button></li>
+          </ul>
+        
+        </form>
+        <button *ngIf="authanticated()===false" class="btn btn-outline-primary" (click)="route()" type="submit">Giriş yap/ Kayıt ol</button>
+      </div>
+    </div>
+  </nav>
